@@ -1,6 +1,6 @@
 (function () {
 
-  angular.module('app', ['component', 'ui.router','ui.bootstrap', 'ngAnimate']);
+  angular.module('app', ['component','common', 'ui.router','ui.bootstrap', 'ngAnimate']);
 
 })();
 
