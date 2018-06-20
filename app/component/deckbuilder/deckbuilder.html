@@ -7,6 +7,11 @@
       </p>
     </div>
 
+    <!--  zzzzzzzzzzzzzzzzzzzzzzz escolha da classe zzzzzzzzzzzzzzzzzzzz -->
+
+    <!--  zzzzzzzzzzzzzzzzzzzzzzz escolha da classe zzzzzzzzzzzzzzzzzzzz -->
+
+
   <div>
     <!-- corresponde a escolha de classe  -->
     <h2>
@@ -18,7 +23,7 @@
       <a href=""> <img src="imagens/Jaina_Proudmoore.png" alt="Classe Sacerdote"> </a>
       <a href=""> <img src="imagens/Malfurion_Stormrage.png" alt="Classe Sacerdote"> </a>
       <a href=""> <img src="imagens/Rexxar.png" alt="Classe Sacerdote"> </a>
-      <a href=""> <img src="imagens/valeera-sanguinar.png" alt="Classe Sacerdote"> </a>    
+      <a href=""> <img src="imagens/valeera-sanguinar.png" alt="Classe Sacerdote"> </a>
     </div>
   </div>
 
@@ -27,6 +32,11 @@
       <input type="text">
     </label>
   </div>
+
+  <!--  zzzzzzzzzzzzzzzzzzzzzzz Filtros zzzzzzzzzzzzzzzzzzzz -->
+
+  <!--  zzzzzzzzzzzzzzzzzzzzzzz Filtros zzzzzzzzzzzzzzzzzzzz -->
+
 
   <div>
     <!-- filtros -->
@@ -49,16 +59,20 @@
     <label for="">Mana
       <select name="" id=""></select>
     </label>
-    
+
     <label for="">Raça
       <select name="" id=""></select>
     </label>
-    
+
     <label for="">Conjunto
       <select name="" id=""></select>
     </label>
-    
+
   </div>
+
+  <!--  zzzzzzzzzzzzzzzzzzzzzzz tabela lateral zzzzzzzzzzzzzzzzzzzz -->
+
+  <!--  zzzzzzzzzzzzzzzzzzzzzzz tabela lateral zzzzzzzzzzzzzzzzzzzz -->
 
   <div>
     <div>
@@ -69,11 +83,11 @@
     <div>
       <div>
         <p>Nome</p>
-      </div>    
+      </div>
 
       <div>
         <p>Custo</p>
-      </div>    
+      </div>
     </div>
 
 
@@ -86,7 +100,7 @@
           <p> custo </p> <img src="" alt=""> <!-- ícone de mana -->
     </div>
 
-    
+
     <div>
       <!-- tabela de mana-->
       <!-- fazer um teste disso amanhã de forma isolada-->
@@ -96,11 +110,27 @@
     </div>
   </div>
 
+  <!--  zzzzzzzzzzzzzzzzzzzzzzz tabela lateral zzzzzzzzzzzzzzzzzzzz -->
+
+  <!--  zzzzzzzzzzzzzzzzzzzzzzz tabela lateral zzzzzzzzzzzzzzzzzzzz -->
+
+
+  <div class="">
+    <div class="">
+      <img ng-repeat="carta in $ctrl.listaByClass track by $index" src="{{ carta.img }}">
+    </div>
+  </div>
+
+
+  <!--  zzzzzzzzzzzzzzzzzzzzzzz botões zzzzzzzzzzzzzzzzzzzz -->
+
+  <!--  zzzzzzzzzzzzzzzzzzzzzzz botões zzzzzzzzzzzzzzzzzzzz -->
+
 
   <div>
     <!-- botões de salvamento e volta a escolha da classe -->
     <button>Voltar</button>
     <button>Salvar</button>
   </div>
-  
+
 </div>
