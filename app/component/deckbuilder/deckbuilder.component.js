@@ -3,6 +3,51 @@
   function deckbuilderController($http) {
     var cartas = this;
     cartas.listaByClass;
+    this.sets =  [
+      "",
+    "Basic",
+    "Classic",
+    "Naxxramas",
+    "Goblins vs Gnomes",
+    "Blackrock Mountain",
+    "The League of Explorers",
+    "Knights of the Frozen Throne",
+    "One Night in Karazhan",
+    "Whispers of the Old Gods",
+    "The Witchwood",
+    "Kobolds & Catacombs",
+    "The Grand Tournament"
+  ]
+
+    this.raridade =  [
+    "Free",
+    "Common",
+    "Rare",
+    "Epic",
+    "Legendary"
+  ]
+
+  this.tipos = [
+   "Hero",
+   "Minion",
+   "Spell",
+   "Weapon"
+ ]
+
+ this.mana = [
+   1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+ ]
+
+this.raca =  [
+    "",
+    "Demon",
+    "Dragon",
+    "Mech",
+    "Murloc",
+    "Beast",
+    "Pirate",
+    "Totem"
+  ]
 
     function getByClass(classe) {
       let baseUrl = "https://omgvamp-hearthstone-v1.p.mashape.com/cards/classes/" + classe;
@@ -94,12 +139,12 @@
           <select name="" id=""></select>
         </label>
 
-        <label for="">Raridade
-          <select name="" id=""></select>
+        <label for="raridade">Raridade
+          <select name="raridade" id="" ng-model="selectedRarity" ng-options="rarity for rarity in $ctrl.raridade"></select>
         </label>
 
-        <label for="">Tipo
-          <select name="" id=""></select>
+        <label for="tipo">Tipo
+          <select name="tipo" id="" ng-model="selectedType" ng-options="type for type in $ctrl.tipos"></select>
         </label>
 
         <label for="">Formato
@@ -107,15 +152,15 @@
         </label>
 
         <label for="">Mana
-          <select name="" id=""></select>
+          <select name="mana" id="" ng-model="selectedMana" ng-options="cost for cost in $ctrl.mana" ></select>
         </label>
 
-        <label for="">Raça
-          <select name="" id=""></select>
+        <label for="raca">Raça
+          <select name="raca" id="" ng-model="selectedRaca" ng-options="race for race in $ctrl.raca"></select>
         </label>
 
-        <label for="">Conjunto
-          <select name="" id=""></select>
+        <label for="conjunto">Conjunto
+          <select name="conjunto" ng-model="selectedSet" ng-options="set for set in $ctrl.sets" ></select>
         </label>
 
       </div>
@@ -167,7 +212,7 @@
 
       <div class="">
         <div class="">
-          <img ng-repeat="carta in $ctrl.listaByClass | filter:  track by $index" src="{{ carta.img }}">
+          <img ng-repeat="carta in $ctrl.listaByClass | filter: { cardSet: selectedSet, rarity: selectedRarity, type: selectedType, cost: selectedMana, race: selectedRaca } track by $index" src="{{ carta.img }}">
         </div>
       </div>
 
