@@ -4,50 +4,82 @@
     var cartas = this;
     cartas.listaByClass;
     this.sets =  [
-      "",
-    "Basic",
-    "Classic",
-    "Naxxramas",
-    "Goblins vs Gnomes",
-    "Blackrock Mountain",
-    "The League of Explorers",
-    "Knights of the Frozen Throne",
-    "One Night in Karazhan",
-    "Whispers of the Old Gods",
-    "The Witchwood",
-    "Kobolds & Catacombs",
-    "The Grand Tournament"
-  ]
+          "",
+        "Basic",
+        "Classic",
+        "Naxxramas",
+        "Goblins vs Gnomes",
+        "Blackrock Mountain",
+        "The League of Explorers",
+        "Knights of the Frozen Throne",
+        "Journey to Un'Goro",
+        "One Night in Karazhan",
+        "Whispers of the Old Gods",
+        "The Witchwood",
+        "Kobolds & Catacombs",
+        "The Grand Tournament"
+      ]
 
-    this.raridade =  [
-    "Free",
-    "Common",
-    "Rare",
-    "Epic",
-    "Legendary"
-  ]
+        this.raridade =  [
+        "Free",
+        "Common",
+        "Rare",
+        "Epic",
+        "Legendary"
+      ]
 
-  this.tipos = [
-   "Hero",
-   "Minion",
-   "Spell",
-   "Weapon"
- ]
+      this.tipos = [
+       "Hero",
+       "Minion",
+       "Spell",
+       "Weapon"
+     ]
 
- this.mana = [
-   1, 2, 3, 4, 5, 6, 7, 8, 9, 10
- ]
+     this.mana = [
+       1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+     ]
 
-this.raca =  [
-    "",
-    "Demon",
-    "Dragon",
-    "Mech",
-    "Murloc",
-    "Beast",
-    "Pirate",
-    "Totem"
-  ]
+    this.raca =  [
+        "",
+        "Demon",
+        "Dragon",
+        "Mech",
+        "Murloc",
+        "Beast",
+        "Pirate",
+        "Totem"
+      ]
+
+    this.formatos = [
+      {
+        name: "standard",
+        values: [
+          "Classic",
+          "Kobolds & Catacombs",
+          "The Witchwood",
+          "Knights of the Frozen Throne",
+          "Journey to Un'Goro"
+        ]
+      },
+      {
+        name: "wild",
+        values: [
+          "Basic",
+          "Classic",
+          "Naxxramas",
+          "Goblins vs Gnomes",
+          "Blackrock Mountain",
+          "The League of Explorers",
+          "Knights of the Frozen Throne",
+          "Journey to Un'Goro",
+          "One Night in Karazhan",
+          "Whispers of the Old Gods",
+          "The Witchwood",
+          "Kobolds & Catacombs",
+          "The Grand Tournament"
+        ]
+      }
+    ]
 
     function getByClass(classe) {
       let baseUrl = "https://omgvamp-hearthstone-v1.p.mashape.com/cards/classes/" + classe;
@@ -83,6 +115,24 @@ this.raca =  [
 
     }
 
+    this.getStandard = (carta, formato) => {
+      if(formato == "standard"){
+        if(
+          (carta.cardSet == "Classic") ||
+          (carta.cardSet == "Kobolds & Catacombs") ||
+          (carta.cardSet == "The Witchwood") ||
+          (carta.cardSet == "Knights of the Frozen Throne") ||
+          (carta.cardSet == "Journey to Un'Goro")
+        ){
+
+          return true;
+        }else {
+          return false;
+        }
+      }else {
+        return true;
+      }
+    }
     //falta criar os filtros
 
   }
@@ -147,8 +197,8 @@ this.raca =  [
           <select name="tipo" id="" ng-model="selectedType" ng-options="type for type in $ctrl.tipos"></select>
         </label>
 
-        <label for="">Formato
-          <select name="" id=""></select>
+        <label for="formato">Formato
+          <select name="formato" id="" ng-model="selectedFormato" ng-options="formato.name for formato in $ctrl.formatos" ></select>
         </label>
 
         <label for="">Mana
