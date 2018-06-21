@@ -81,6 +81,7 @@
       }
     ]
 
+    
     function getByClass(classe) {
       let baseUrl = "https://omgvamp-hearthstone-v1.p.mashape.com/cards/classes/" + classe;
 
@@ -115,25 +116,7 @@
 
     }
 
-    this.getStandard = (carta, formato) => {
-      if(formato == "standard"){
-        if(
-          (carta.cardSet == "Classic") ||
-          (carta.cardSet == "Kobolds & Catacombs") ||
-          (carta.cardSet == "The Witchwood") ||
-          (carta.cardSet == "Knights of the Frozen Throne") ||
-          (carta.cardSet == "Journey to Un'Goro")
-        ){
-
-          return true;
-        }else {
-          return false;
-        }
-      }else {
-        return true;
-      }
-    }
-    //falta criar os filtros
+    
 
   }
 
@@ -185,9 +168,6 @@
 
       <div>
         <!-- filtros -->
-        <label for="">Mecânica
-          <select name="" id=""></select>
-        </label>
 
         <label for="raridade">Raridade
           <select name="raridade" id="" ng-model="selectedRarity" ng-options="rarity for rarity in $ctrl.raridade"></select>
@@ -195,10 +175,6 @@
 
         <label for="tipo">Tipo
           <select name="tipo" id="" ng-model="selectedType" ng-options="type for type in $ctrl.tipos"></select>
-        </label>
-
-        <label for="formato">Formato
-          <select name="formato" id="" ng-model="selectedFormato" ng-options="formato.name for formato in $ctrl.formatos" ></select>
         </label>
 
         <label for="">Mana
