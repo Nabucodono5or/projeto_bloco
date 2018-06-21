@@ -1,6 +1,7 @@
 (function() {
 
   function deckbuilderController($http) {
+    this.classeEscolhida = false;
     var cartas = this;
     this.myDeck = [];
     cartas.listaByClass;
@@ -99,7 +100,13 @@
 
     }
 
-    getByClass('Hunter');
+    this.clickEscolhaDaClasse = (classe) => {
+      this.classeEscolhida = true;
+      getByClass(classe);
+    }
+
+    // isso tem de ser eleiminado
+    //getByClass('Hunter');
 
     function getNeutral() {
       let classe = "Neutral"
@@ -177,21 +184,24 @@
         <!--  zzzzzzzzzzzzzzzzzzzzzzz escolha da classe zzzzzzzzzzzzzzzzzzzz -->
 
 
-      <div>
+      <div ng-show="!$ctrl.classeEscolhida" >
         <!-- corresponde a escolha de classe  -->
         <h2>
           Escolha sua classe
         </h2>
         <div>
-          <a href=""> <img src="imagens/Anduin_Wrynn.png" alt="Classe Sacerdote"> </a>
-          <a href=""> <img src="imagens/Garrosh_Hellscream.png" alt="Classe Sacerdote"> </a>
-          <a href=""> <img src="imagens/Jaina_Proudmoore.png" alt="Classe Sacerdote"> </a>
-          <a href=""> <img src="imagens/Malfurion_Stormrage.png" alt="Classe Sacerdote"> </a>
-          <a href=""> <img src="imagens/Rexxar.png" alt="Classe Sacerdote"> </a>
-          <a href=""> <img src="imagens/valeera-sanguinar.png" alt="Classe Sacerdote"> </a>
+          <a href="" ng-click="$ctrl.clickEscolhaDaClasse('')"> <img src="imagens/Anduin_Wrynn.png" alt="Classe Sacerdote"> </a>
+          <a href="" ng-click="$ctrl.clickEscolhaDaClasse('')"> <img src="imagens/Garrosh_Hellscream.png" alt="Classe Guerreiro"> </a>
+          <a href="" ng-click="$ctrl.clickEscolhaDaClasse('')"> <img src="imagens/Jaina_Proudmoore.png" alt="Classe Mago"> </a>
+          <a href="" ng-click="$ctrl.clickEscolhaDaClasse('')"> <img src="imagens/Malfurion_Stormrage.png" alt="Classe Druida"> </a>
+          <a href="" ng-click="$ctrl.clickEscolhaDaClasse('Hunter')"> <img src="imagens/Rexxar.png" alt="Classe Caçador"> </a>
+          <a href="" ng-click="$ctrl.clickEscolhaDaClasse('')"> <img src="imagens/valeera-sanguinar.png" alt="Classe Ladino"> </a>
         </div>
       </div>
 
+      <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxx parte de classe xxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+      <div ng-show="$ctrl.classeEscolhida">
       <div>
         <label for="">Buscar carta
           <input type="text">
@@ -289,6 +299,8 @@
         <!-- botões de salvamento e volta a escolha da classe -->
         <button>Voltar</button>
         <button>Salvar</button>
+      </div>
+
       </div>
 
     </div>
