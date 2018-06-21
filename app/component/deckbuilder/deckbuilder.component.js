@@ -123,6 +123,11 @@
       console.log(carta.name);
     }
 
+    this.clickRemove = (index) => {
+      console.log(index);
+      this.myDeck.splice(index,1);
+    }
+
   }
 
   deckbuilderController.$inject = ['$http'];
@@ -220,7 +225,7 @@
         <div >
           <!-- lista de cartas -->
           <!-- baseado hearthstone pwn  -->
-          <div ng-repeat="carta in $ctrl.myDeck track by $index">
+          <div ng-click="$ctrl.clickRemove($index)" ng-repeat="carta in $ctrl.myDeck track by $index">
               <div> <p> {{ carta.name }} </p></div>
               <div> {{ carta.cost }} </div>
           </div>
