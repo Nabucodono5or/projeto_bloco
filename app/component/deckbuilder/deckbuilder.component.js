@@ -105,6 +105,11 @@
       getByClass(classe);
     }
 
+    this.clickRetorno = () => {
+      this.classeEscolhida = false;
+
+    }
+
     // isso tem de ser eleiminado
     //getByClass('Hunter');
 
@@ -297,7 +302,7 @@
 
       <div>
         <!-- botões de salvamento e volta a escolha da classe -->
-        <button>Voltar</button>
+        <button ng-click="$ctrl.clickRetorno()">Voltar</button>
         <button>Salvar</button>
       </div>
 
