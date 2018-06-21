@@ -81,7 +81,7 @@
       }
     ]
 
-    
+
     function getByClass(classe) {
       let baseUrl = "https://omgvamp-hearthstone-v1.p.mashape.com/cards/classes/" + classe;
 
@@ -116,7 +116,9 @@
 
     }
 
-    
+    this.clickAdd = (carta) => {
+      console.log(carta);
+    }
 
   }
 
@@ -238,7 +240,7 @@
 
       <div class="">
         <div class="">
-          <img ng-repeat="carta in $ctrl.listaByClass | filter: { cardSet: selectedSet, rarity: selectedRarity, type: selectedType, cost: selectedMana, race: selectedRaca } track by $index" src="{{ carta.img }}">
+          <img ng-click="$ctrl.clickAdd(carta.name)" ng-repeat="carta in $ctrl.listaByClass | filter: { cardSet: selectedSet, rarity: selectedRarity, type: selectedType, cost: selectedMana, race: selectedRaca } track by $index" src="{{ carta.img }}">
         </div>
       </div>
 
