@@ -85,6 +85,8 @@
 
 
     function getByClass(classe) {
+      cartas.listaByClass = [];
+      cartas.myDeck = [];
       let baseUrl = "https://omgvamp-hearthstone-v1.p.mashape.com/cards/classes/" + classe;
 
       $http.get(baseUrl, {
@@ -108,6 +110,10 @@
     this.clickRetorno = () => {
       this.classeEscolhida = false;
 
+    }
+
+    this.salvar = () => {
+      alert('Para salvar é preciso está logado, por favor log no site antes de qualquer coisa');
     }
 
     // isso tem de ser eleiminado
@@ -195,12 +201,12 @@
           Escolha sua classe
         </h2>
         <div>
-          <a href="" ng-click="$ctrl.clickEscolhaDaClasse('')"> <img src="imagens/Anduin_Wrynn.png" alt="Classe Sacerdote"> </a>
-          <a href="" ng-click="$ctrl.clickEscolhaDaClasse('')"> <img src="imagens/Garrosh_Hellscream.png" alt="Classe Guerreiro"> </a>
-          <a href="" ng-click="$ctrl.clickEscolhaDaClasse('')"> <img src="imagens/Jaina_Proudmoore.png" alt="Classe Mago"> </a>
-          <a href="" ng-click="$ctrl.clickEscolhaDaClasse('')"> <img src="imagens/Malfurion_Stormrage.png" alt="Classe Druida"> </a>
+          <a href="" ng-click="$ctrl.clickEscolhaDaClasse('Priest')"> <img src="imagens/Anduin_Wrynn.png" alt="Classe Sacerdote"> </a>
+          <a href="" ng-click="$ctrl.clickEscolhaDaClasse('Warrior')"> <img src="imagens/Garrosh_Hellscream.png" alt="Classe Guerreiro"> </a>
+          <a href="" ng-click="$ctrl.clickEscolhaDaClasse('Mage')"> <img src="imagens/Jaina_Proudmoore.png" alt="Classe Mago"> </a>
+          <a href="" ng-click="$ctrl.clickEscolhaDaClasse('Druid')"> <img src="imagens/Malfurion_Stormrage.png" alt="Classe Druida"> </a>
           <a href="" ng-click="$ctrl.clickEscolhaDaClasse('Hunter')"> <img src="imagens/Rexxar.png" alt="Classe Caçador"> </a>
-          <a href="" ng-click="$ctrl.clickEscolhaDaClasse('')"> <img src="imagens/valeera-sanguinar.png" alt="Classe Ladino"> </a>
+          <a href="" ng-click="$ctrl.clickEscolhaDaClasse('Rogue')"> <img src="imagens/valeera-sanguinar.png" alt="Classe Ladino"> </a>
         </div>
       </div>
 
@@ -303,7 +309,7 @@
       <div>
         <!-- botões de salvamento e volta a escolha da classe -->
         <button ng-click="$ctrl.clickRetorno()">Voltar</button>
-        <button>Salvar</button>
+        <button ng-click="$ctrl.salvar()">Salvar</button>
       </div>
 
       </div>
@@ -311,4 +317,5 @@
     </div>
     `
   });
+
 })();
