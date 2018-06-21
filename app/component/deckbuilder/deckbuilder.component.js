@@ -2,6 +2,7 @@
 
   function deckbuilderController($http) {
     var cartas = this;
+    this.myDeck = [];
     cartas.listaByClass;
     this.sets =  [
           "",
@@ -116,8 +117,10 @@
 
     }
 
+
     this.clickAdd = (carta) => {
-      console.log(carta);
+      this.myDeck.push(carta);
+      console.log(carta.name);
     }
 
   }
@@ -217,10 +220,10 @@
         <div >
           <!-- lista de cartas -->
           <!-- baseado hearthstone pwn  -->
-          <div>
-              <p> {{ nome }} quantidade </p>
+          <div ng-repeat="carta in $ctrl.myDeck track by $index">
+              <div> <p> {{ carta.name }} </p></div>
+              <div> {{ carta.cost }} </div>
           </div>
-              <p> custo </p> <img src="" alt=""> <!-- ícone de mana -->
         </div>
 
 
@@ -240,7 +243,7 @@
 
       <div class="">
         <div class="">
-          <img ng-click="$ctrl.clickAdd(carta.name)" ng-repeat="carta in $ctrl.listaByClass | filter: { cardSet: selectedSet, rarity: selectedRarity, type: selectedType, cost: selectedMana, race: selectedRaca } track by $index" src="{{ carta.img }}">
+          <img ng-click="$ctrl.clickAdd(carta)" ng-repeat="carta in $ctrl.listaByClass | filter: { cardSet: selectedSet, rarity: selectedRarity, type: selectedType, cost: selectedMana, race: selectedRaca } track by $index" src="{{ carta.img }}">
         </div>
       </div>
 
