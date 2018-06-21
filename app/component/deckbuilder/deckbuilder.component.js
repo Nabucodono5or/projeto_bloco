@@ -119,13 +119,40 @@
 
 
     this.clickAdd = (carta) => {
-      this.myDeck.push(carta);
+      if(!this.limiteDeCartas(this.myDeck.length) && !this.cartaRepetida(carta)){
+        this.myDeck.push(carta);
+      }
+
       console.log(carta.name);
     }
 
     this.clickRemove = (index) => {
       console.log(index);
       this.myDeck.splice(index,1);
+    }
+
+    this.limiteDeCartas = (tamanhoLista) => {
+      if(tamanhoLista === 40){
+        return true;
+      }else {
+        return false;
+      }
+    }
+
+    this.cartaRepetida = (carta) => {
+      let limite = 0;
+
+      for (let i = 0; i < this.myDeck.length; i++) {
+        if(this.myDeck[i] == carta){
+          limite++;
+        }
+      }
+
+      if(limite >1){
+        return true;
+      }
+
+      return false;
     }
 
   }
