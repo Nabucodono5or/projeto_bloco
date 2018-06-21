@@ -8,12 +8,11 @@
   angular.module('app').config(function($stateProvider, $urlRouterProvider) {
     "ngInject";
 
-    //$urlRouterProvider.otherwise('/');
-    $urlRouterProvider.otherwise('/deckbuilder');
+    $urlRouterProvider.otherwise('/');
 
     $stateProvider.state('home', {
       url: '/',
-      component: ''
+      component: 'homecomp'
     }).state('deckbuilder', {
       url: '/deckbuilder',
       component: 'deckbuildercomp'

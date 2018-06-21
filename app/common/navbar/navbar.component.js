@@ -19,6 +19,7 @@
              class="navbar-collapse collapse"
              uib-collapse="$ctrl.isNavBarCollapsed">
           <ul class="nav navbar-nav">
+            <li ui-sref-active="active"><a ui-sref="home" class="text-titulo">Home</a></li>
             <li ui-sref-active="active"><a ui-sref="deckbuilder" class="text-titulo">DeckBuilder</a></li>
           </ul>
         </div>

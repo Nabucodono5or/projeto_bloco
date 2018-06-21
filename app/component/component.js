@@ -1,4 +1,4 @@
 (function () {
-  angular.module('component', ['deckbuilder']);
+  angular.module('component', ['deckbuilder', 'home']);
 
 })();
