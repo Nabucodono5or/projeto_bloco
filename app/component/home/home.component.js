@@ -100,13 +100,15 @@
   angular.module('home').component('homecomp', {
     controller: homeController,
     template: `
-    <div class="">
-      <div class="">
-        <h3>Cartas mais usadas</h3>
-      </div>
-      <div class="">
-        <div class="" ng-repeat="carta in $ctrl.cardsCarregados">
-          <a href="#">{{ carta[0].name }}</a>
+    <div class="row">
+      <div class="panel panel-default">
+        <div class="">
+          <h3>Cartas mais usadas</h3>
+        </div>
+        <div class="">
+          <div class="" ng-repeat="carta in $ctrl.cardsCarregados">
+            <a href="#">{{ carta[0].name }}</a>
+          </div>
         </div>
       </div>
 
