@@ -1,6 +1,31 @@
 (function () {
 
-  function homeController() {
+  function homeController($http) {
+
+    this.getByCard = (cardName) => {
+      let baseUrl = "https://omgvamp-hearthstone-v1.p.mashape.com/cards/"+cardName;
+
+      $http.get(baseUrl, {
+        headers: {
+          'X-Mashape-Key': '4CHqGYa6nHmshNfnozNiJO9OZB7kp1ad8UgjsnV2SjQzO4fBqS'
+        }
+      }).then( (response) => {
+         this.cardsCarregados.push(response.data);
+        console.log(this.cardsCarregados);
+      }, (err) => {
+        console.log(err);
+      });
+
+    }
+
+    this.getCardsPopulares = () => {
+
+      for (var i = 0; i < this.cardsPopulares.length; i++) {
+        this.getByCard(this.cardsPopulares[i]);
+      }
+      console.log(this.cardsCarregados);
+    }
+
 
     this.decksPopulares = [
       {
@@ -63,15 +88,13 @@
       "Hagatha the witch"
     ];
 
-    this.cardsCarregados = [
-      {
+    this.cardsCarregados = [];
 
-      }
-    ]
+    this.getCardsPopulares();
 
   }
 
-  homeController.$inject = [];
+  homeController.$inject = ['$http'];
   angular.module('home').controller('homeController', homeController);
 
   angular.module('home').component('homecomp', {
@@ -82,8 +105,8 @@
         <h3>Cartas mais usadas</h3>
       </div>
       <div class="">
-        <div class="" ng-repeat="">
-          <a href="#"></a>
+        <div class="" ng-repeat="carta in $ctrl.cardsCarregados">
+          <a href="#">{{ carta[0].name }}</a>
         </div>
       </div>
 
