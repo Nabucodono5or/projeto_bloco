@@ -183,8 +183,8 @@
     template: `
     <div>
 
-        <h2>DeckBuilder</h2>
-        <div>
+        <h2 class="">DeckBuilder</h2>
+        <div class="paddingCards panel panel-default">
           <p>
             texto explicativo
           </p>
@@ -195,27 +195,26 @@
         <!--  zzzzzzzzzzzzzzzzzzzzzzz escolha da classe zzzzzzzzzzzzzzzzzzzz -->
 
 
-      <div ng-show="!$ctrl.classeEscolhida" >
+      <div class="panel panel-defualt" ng-show="!$ctrl.classeEscolhida" >
         <!-- corresponde a escolha de classe  -->
-        <h2>
+        <h2 class="paddingCards">
           Escolha sua classe
         </h2>
-        <div>
-          <a href="" ng-click="$ctrl.clickEscolhaDaClasse('Priest')"> <img src="imagens/Anduin_Wrynn.png" alt="Classe Sacerdote"> </a>
-          <a href="" ng-click="$ctrl.clickEscolhaDaClasse('Warrior')"> <img src="imagens/Garrosh_Hellscream.png" alt="Classe Guerreiro"> </a>
-          <a href="" ng-click="$ctrl.clickEscolhaDaClasse('Mage')"> <img src="imagens/Jaina_Proudmoore.png" alt="Classe Mago"> </a>
-          <a href="" ng-click="$ctrl.clickEscolhaDaClasse('Druid')"> <img src="imagens/Malfurion_Stormrage.png" alt="Classe Druida"> </a>
-          <a href="" ng-click="$ctrl.clickEscolhaDaClasse('Hunter')"> <img src="imagens/Rexxar.png" alt="Classe Caçador"> </a>
-          <a href="" ng-click="$ctrl.clickEscolhaDaClasse('Rogue')"> <img src="imagens/valeera-sanguinar.png" alt="Classe Ladino"> </a>
+        <div class="row paddingPaineis">
+          <a href="" ng-click="$ctrl.clickEscolhaDaClasse('Warrior')"> <img class="col-md-3 col-sm-6 col-xs-12" ng-src="app/component/deckbuilder/imagens/Garrosh_Hellscream.png" alt="Classe Guerreiro"> </a>
+          <a href="" ng-click="$ctrl.clickEscolhaDaClasse('Mage')"> <img class="col-md-3 col-sm-6 col-xs-12" src="app/component/deckbuilder/imagens/Jaina_Proudmoore.png" alt="Classe Mago"> </a>
+          <a href="" ng-click="$ctrl.clickEscolhaDaClasse('Druid')"> <img class="col-md-3 col-sm-6 col-xs-12" src="app/component/deckbuilder/imagens/Malfurion_Stormrage.png" alt="Classe Druida"> </a>
+          <a href="" ng-click="$ctrl.clickEscolhaDaClasse('Hunter')"> <img class="col-md-3 col-sm-6 col-xs-12" src="app/component/deckbuilder/imagens/Rexxar.png" alt="Classe Caçador"> </a>
+          <a href="" ng-click="$ctrl.clickEscolhaDaClasse('Rogue')"> <img class="col-md-3 col-sm-6 col-xs-12" src="app/component/deckbuilder/imagens/valeera-sanguinar.png" alt="Classe Ladino"> </a>
         </div>
       </div>
 
       <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxx parte de classe xxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
-      <div ng-show="$ctrl.classeEscolhida">
-      <div>
-        <label for="">Buscar carta
-          <input type="text">
+      <div class="panel panel-default paddingCards" ng-show="$ctrl.classeEscolhida">
+      <div class="form-group">
+        <label for="busca">Buscar carta
+          <input class="form-control" name="busca" type="text">
         </label>
       </div>
 
@@ -224,27 +223,27 @@
       <!--  zzzzzzzzzzzzzzzzzzzzzzz Filtros zzzzzzzzzzzzzzzzzzzz -->
 
 
-      <div>
+      <div class="form-group marginExtra">
         <!-- filtros -->
 
         <label for="raridade">Raridade
-          <select name="raridade" id="" ng-model="selectedRarity" ng-options="rarity for rarity in $ctrl.raridade"></select>
+          <select class="form-control" name="raridade" id="" ng-model="selectedRarity" ng-options="rarity for rarity in $ctrl.raridade"></select>
         </label>
 
         <label for="tipo">Tipo
-          <select name="tipo" id="" ng-model="selectedType" ng-options="type for type in $ctrl.tipos"></select>
+          <select class="form-control" name="tipo" id="" ng-model="selectedType" ng-options="type for type in $ctrl.tipos"></select>
         </label>
 
         <label for="">Mana
-          <select name="mana" id="" ng-model="selectedMana" ng-options="cost for cost in $ctrl.mana" ></select>
+          <select class="form-control" name="mana" id="" ng-model="selectedMana" ng-options="cost for cost in $ctrl.mana" ></select>
         </label>
 
         <label for="raca">Raça
-          <select name="raca" id="" ng-model="selectedRaca" ng-options="race for race in $ctrl.raca"></select>
+          <select class="form-control" name="raca" id="" ng-model="selectedRaca" ng-options="race for race in $ctrl.raca"></select>
         </label>
 
         <label for="conjunto">Conjunto
-          <select name="conjunto" ng-model="selectedSet" ng-options="set for set in $ctrl.sets" ></select>
+          <select class="form-control" name="conjunto" ng-model="selectedSet" ng-options="set for set in $ctrl.sets" ></select>
         </label>
 
       </div>

@@ -101,7 +101,7 @@
     controller: homeController,
     template: `
     <div class="row marginTopExtra">
-      <div class="panel panel-default col-xs-12 col-sm-5">
+      <div class="panel panel-default col-xs-12 col-sm-5 col-md-5">
         <div class="tituloCards">
           <h3>Cartas mais usadas</h3>
         </div>
@@ -112,7 +112,7 @@
         </div>
       </div>
 
-      <div class="panel panel-default col-xs-12 col-sm-5 col-md-offset-1">
+      <div class="panel panel-default col-xs-12 col-sm-5 col-md-5 col-sm-offset-1 col-md-offset-1">
         <div class="tituloCards">
           <h3>Decks mais populares</h3>
         </div>
@@ -124,7 +124,7 @@
         </div>
       </div>
 
-      <div class="panel panel-default col-xs-12 col-sm-5 col-md-offset-1">
+      <div class="panel panel-default col-xs-12 col-sm-5 col-md-5 col-md-offset-1">
         <div class="tituloCards">
           <h3>Novos decks</h3>
         </div>
