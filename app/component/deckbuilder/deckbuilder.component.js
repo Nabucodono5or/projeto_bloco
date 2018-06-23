@@ -104,6 +104,7 @@
 
     this.clickEscolhaDaClasse = (classe) => {
       this.classeEscolhida = true;
+      this.classeTipo = classe;
       getByClass(classe);
     }
 
@@ -183,9 +184,9 @@
     template: `
     <div>
 
-        <h2 class="">DeckBuilder</h2>
+        <h2 class="tituloDeckBuilder marginTopExtra">DeckBuilder</h2>
         <div class="paddingCards panel panel-default">
-          <p>
+          <p class="textoExplicativo">
             texto explicativo
           </p>
         </div>
@@ -197,7 +198,7 @@
 
       <div class="panel panel-defualt" ng-show="!$ctrl.classeEscolhida" >
         <!-- corresponde a escolha de classe  -->
-        <h2 class="paddingCards">
+        <h2 class="paddingCards tituloCards">
           Escolha sua classe
         </h2>
         <div class="row paddingPaineis">
@@ -255,26 +256,28 @@
       <div>
         <div>
           <!--titulo do baralho-->
-          <p>Deck de {{ classe }} </p>
+          <p class="tituloDeck">Deck de {{ $ctrl.classeTipo }} </p>
         </div>
 
-        <div>
-          <div>
-            <p>Nome</p>
+        <div class="panel panel-defualt">
+          <div class="row">
+            <div class="tituloPanel col-xs-6">
+              <p>Nome</p>
+            </div>
+
+            <div class="tituloPanel col-xs-6">
+              <p>Custo</p>
+            </div>
           </div>
 
-          <div>
-            <p>Custo</p>
-          </div>
-        </div>
 
-
-        <div >
-          <!-- lista de cartas -->
-          <!-- baseado hearthstone pwn  -->
-          <div ng-click="$ctrl.clickRemove($index)" ng-repeat="carta in $ctrl.myDeck track by $index">
-              <div> <p> {{ carta.name }} </p></div>
-              <div> {{ carta.cost }} </div>
+          <div class="">
+            <!-- lista de cartas -->
+            <!-- baseado hearthstone pwn  -->
+            <div ng-click="$ctrl.clickRemove($index)" ng-repeat="carta in $ctrl.myDeck track by $index">
+                <div class="panelListaCards col-xs-6"> <p> {{ carta.name }} </p></div>
+                <div class="panelListaCards col-xs-6"> {{ carta.cost }} </div>
+            </div>
           </div>
         </div>
 
@@ -294,8 +297,8 @@
 
 
       <div class="">
-        <div class="">
-          <img ng-click="$ctrl.clickAdd(carta)" ng-repeat="carta in $ctrl.listaByClass | filter: { cardSet: selectedSet, rarity: selectedRarity, type: selectedType, cost: selectedMana, race: selectedRaca } track by $index" src="{{ carta.img }}">
+        <div class="row">
+          <img class="col-xs-12" ng-click="$ctrl.clickAdd(carta)" ng-repeat="carta in $ctrl.listaByClass | filter: { cardSet: selectedSet, rarity: selectedRarity, type: selectedType, cost: selectedMana, race: selectedRaca } track by $index" src="{{ carta.img }}">
         </div>
       </div>
 

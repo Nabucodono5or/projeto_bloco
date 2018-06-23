@@ -20,3 +20,29 @@ body {
 .marginExtra {
   margin: 10px;
 }
+
+.tituloPanel {
+  background-color: #000000;
+  color: #ffffff;
+  border: 1px solid #fff;
+}
+
+.panelListaCards {
+
+}
+
+.tituloDeck {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.textoExplicativo {
+  padding: 10px;
+  background-color: #bfedef;
+  border-left: 6px solid blue;
+}
+
+.tituloDeckBuilder {
+  color: #fff;
+  border-bottom: 3px solid #fff;
+}
