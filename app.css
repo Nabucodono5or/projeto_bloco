@@ -46,3 +46,12 @@ body {
   color: #fff;
   border-bottom: 3px solid #fff;
 }
+
+div.ex1 {
+  height: 900px;
+  overflow-y: scroll;
+}
+
+.marginMiniTop {
+  margin-top: 10px;
+}

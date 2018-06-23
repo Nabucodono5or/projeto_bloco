@@ -224,11 +224,11 @@
       <!--  zzzzzzzzzzzzzzzzzzzzzzz Filtros zzzzzzzzzzzzzzzzzzzz -->
 
 
-      <div class="form-group marginExtra">
+      <div class="panel panel-default paddingCards form-group marginExtra">
         <!-- filtros -->
 
         <label for="raridade">Raridade
-          <select class="form-control" name="raridade" id="" ng-model="selectedRarity" ng-options="rarity for rarity in $ctrl.raridade"></select>
+          <select class=" form-control" name="raridade" id="" ng-model="selectedRarity" ng-options="rarity for rarity in $ctrl.raridade"></select>
         </label>
 
         <label for="tipo">Tipo
@@ -259,13 +259,13 @@
           <p class="tituloDeck">Deck de {{ $ctrl.classeTipo }} </p>
         </div>
 
-        <div class="panel panel-defualt">
+        <div class="">
           <div class="row">
-            <div class="tituloPanel col-xs-6">
+            <div class="tituloPanel col-xs-6 col-sm-3 col-md-3">
               <p>Nome</p>
             </div>
 
-            <div class="tituloPanel col-xs-6">
+            <div class="tituloPanel col-xs-5 col-sm-2 col-md-2">
               <p>Custo</p>
             </div>
           </div>
@@ -274,9 +274,9 @@
           <div class="">
             <!-- lista de cartas -->
             <!-- baseado hearthstone pwn  -->
-            <div ng-click="$ctrl.clickRemove($index)" ng-repeat="carta in $ctrl.myDeck track by $index">
-                <div class="panelListaCards col-xs-6"> <p> {{ carta.name }} </p></div>
-                <div class="panelListaCards col-xs-6"> {{ carta.cost }} </div>
+            <div class="row" ng-click="$ctrl.clickRemove($index)" ng-repeat="carta in $ctrl.myDeck track by $index">
+                <div class="panelListaCards col-xs-6 col-sm-3 col-md-3"> <p> {{ carta.name }} </p></div>
+                <div class="panelListaCards col-xs-6 col-sm-2 col-md-2"> {{ carta.cost }} </div>
             </div>
           </div>
         </div>
@@ -289,16 +289,15 @@
 
           </div>
         </div>
-      </div>
 
       <!--  zzzzzzzzzzzzzzzzzzzzzzz tabela lateral zzzzzzzzzzzzzzzzzzzz -->
 
       <!--  zzzzzzzzzzzzzzzzzzzzzzz tabela lateral zzzzzzzzzzzzzzzzzzzz -->
 
 
-      <div class="">
-        <div class="row">
-          <img class="col-xs-12" ng-click="$ctrl.clickAdd(carta)" ng-repeat="carta in $ctrl.listaByClass | filter: { cardSet: selectedSet, rarity: selectedRarity, type: selectedType, cost: selectedMana, race: selectedRaca } track by $index" src="{{ carta.img }}">
+      <div class="panel panel-default col-xs-12 marginTopExtra">
+        <div class="row ex1 paddingPaineis">
+          <img class="col-sm-3 col-md-3 col-xs-12" ng-click="$ctrl.clickAdd(carta)" ng-repeat="carta in $ctrl.listaByClass | filter: { cardSet: selectedSet, rarity: selectedRarity, type: selectedType, cost: selectedMana, race: selectedRaca } track by $index" src="{{ carta.img }}">
         </div>
       </div>
 
@@ -308,10 +307,10 @@
       <!--  zzzzzzzzzzzzzzzzzzzzzzz botões zzzzzzzzzzzzzzzzzzzz -->
 
 
-      <div>
+      <div class="">
         <!-- botões de salvamento e volta a escolha da classe -->
-        <button ng-click="$ctrl.clickRetorno()">Voltar</button>
-        <button ng-click="$ctrl.salvar()">Salvar</button>
+        <button class="marginMiniTop col-sm-2 col-md-2 col-xs-12 btn btn-info" ng-click="$ctrl.clickRetorno()">Voltar</button>
+        <button class="marginMiniTop col-sm-2 col-md-2 col-md-offset-1 col-sm-offset-1 col-xs-12 btn btn-warning" ng-click="$ctrl.salvar()">Salvar</button>
       </div>
 
       </div>
