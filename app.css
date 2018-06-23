@@ -55,3 +55,23 @@ div.ex1 {
 .marginMiniTop {
   margin-top: 10px;
 }
+
+.nomeCarta {
+  font-weight: bold;
+}
+
+.lendario {
+  color: #f18701;
+}
+
+.epico {
+  color: #9b287b;
+}
+
+.comum {
+  color: #253031;
+}
+
+.raro {
+  color: #2e5077;
+}

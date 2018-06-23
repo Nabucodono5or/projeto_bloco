@@ -275,7 +275,7 @@
             <!-- lista de cartas -->
             <!-- baseado hearthstone pwn  -->
             <div class="row" ng-click="$ctrl.clickRemove($index)" ng-repeat="carta in $ctrl.myDeck track by $index">
-                <div class="panelListaCards col-xs-6 col-sm-3 col-md-3"> <p> {{ carta.name }} </p></div>
+                <div ng-class="{lendario: carta.rarity == 'Legendary', epico: carta.rarity == 'Epic', raro: carta.rarity == 'Rare', comum: carta.rarity == 'Common'}" class="nomeCarta panelListaCards col-xs-6 col-sm-3 col-md-3"> <p> {{ carta.name }} </p></div>
                 <div class="panelListaCards col-xs-6 col-sm-2 col-md-2"> {{ carta.cost }} </div>
             </div>
           </div>
