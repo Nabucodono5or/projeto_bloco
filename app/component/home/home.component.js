@@ -107,7 +107,7 @@
         </div>
         <div class="paddingCards">
           <div class="" ng-repeat="carta in $ctrl.cardsCarregados">
-            <a href="#">{{ carta[0].name }}</a>
+            <a href="#" uib-tooltip="imagem da carta aqui">{{ carta[0].name }}</a>
           </div>
         </div>
       </div>
