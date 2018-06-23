@@ -1,0 +1,14 @@
+body {
+  background-color: #2e4756;
+}
+
+.tituloCards {
+  font-family: 'Oswald', sans-serif;
+}
+.marginTopExtra {
+  margin-top: 60px;
+}
+
+.paddingCards {
+  padding: 10px;
+}

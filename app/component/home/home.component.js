@@ -100,37 +100,40 @@
   angular.module('home').component('homecomp', {
     controller: homeController,
     template: `
-    <div class="row">
-      <div class="panel panel-default">
-        <div class="">
+    <div class="row marginTopExtra">
+      <div class="panel panel-default col-xs-12 col-sm-5">
+        <div class="tituloCards">
           <h3>Cartas mais usadas</h3>
         </div>
-        <div class="">
+        <div class="paddingCards">
           <div class="" ng-repeat="carta in $ctrl.cardsCarregados">
             <a href="#">{{ carta[0].name }}</a>
           </div>
         </div>
       </div>
 
-      <div class="">
-        <h3>Decks mais populares</h3>
-      </div>
-      <div class="">
-        <div class="" ng-repeat="deck in $ctrl.decksPopulares">
-          <a href="#">{{ deck.nome }}</a>
+      <div class="panel panel-default col-xs-12 col-sm-5 col-md-offset-1">
+        <div class="tituloCards">
+          <h3>Decks mais populares</h3>
         </div>
+        <div class="paddingCards">
+          <div class="" ng-repeat="deck in $ctrl.decksPopulares">
+            <a href="#">{{ deck.nome }}</a>
+          </div>
 
-      </div>
-
-      <div class="">
-        <h3>Novos decks</h3>
-      </div>
-      <div class="">
-        <div class="" ng-repeat="deck in $ctrl.novosDecks">
-          <a href="#">{{ deck.nome }}</a>
         </div>
       </div>
 
+      <div class="panel panel-default col-xs-12 col-sm-5 col-md-offset-1">
+        <div class="tituloCards">
+          <h3>Novos decks</h3>
+        </div>
+        <div class="paddingCards">
+          <div class="" ng-repeat="deck in $ctrl.novosDecks">
+            <a href="#">{{ deck.nome }}</a>
+          </div>
+        </div>
+      </div>
 
     </div>
 `,
