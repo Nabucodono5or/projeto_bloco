@@ -3,6 +3,7 @@
   function deckbuilderController($http) {
     this.classeEscolhida = false;
     var cartas = this;
+    this.proibido = "Hero Power";
     this.myDeck = [];
     getNeutral();
     cartas.listaByClass;
@@ -190,7 +191,10 @@
         <h2 class="tituloDeckBuilder marginTopExtra">DeckBuilder</h2>
         <div class="paddingCards panel panel-default">
           <p class="textoExplicativo">
-            texto explicativo
+          Deckbuider é uma ferramenta usada para você criar qualquer tipo de deck de hearthstone, e isso se presume a decks de contendas, decks considerados absurdos, enfim todo o tipo de deck, contudo para salvar os decks é preciso está logado. 
+          </p>
+          <p class="textoExplicativo">
+          Para começar a montar seu deck, escolha sua classe e depois click em cada carta. As regras do jogo serão as mesmas usadas aqui na limitação da criação dos deck’s.
           </p>
         </div>
 
@@ -310,7 +314,7 @@
 
         <uib-tab index="1" heading="Cartas Neutras">
           <div class="row ex1 paddingPaineis">
-            <img class="col-sm-3 col-md-3 col-xs-12" ng-click="$ctrl.clickAdd(carta)" ng-repeat="carta in $ctrl.lista | filter: { cardSet: selectedSet, rarity: selectedRarity, type: selectedType, cost: selectedMana, race: selectedRaca, name: buscaDoUsuario } track by $index" src="{{ carta.img }}">
+            <img class="col-sm-3 col-md-3 col-xs-12" ng-click="$ctrl.clickAdd(carta)" ng-repeat="carta in $ctrl.lista | filter: { cardSet: selectedSet, rarity: selectedRarity, type: selectedType, cost: selectedMana, race: selectedRaca, name: buscaDoUsuario, img: '!!' } track by $index" src="{{ carta.img }}">
           </div>
         </uib-tab> 
         

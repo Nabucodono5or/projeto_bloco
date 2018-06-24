@@ -75,3 +75,7 @@ div.ex1 {
 .raro {
   color: #2e5077;
 }
+
+.navbar {
+  box-shadow: 0 8px 6px -6px;
+}
