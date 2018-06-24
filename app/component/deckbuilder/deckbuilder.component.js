@@ -209,11 +209,14 @@
           Escolha sua classe
         </h2>
         <div class="row paddingPaineis">
-          <a href="" ng-click="$ctrl.clickEscolhaDaClasse('Warrior')"> <img class="col-md-3 col-sm-6 col-xs-12" ng-src="app/component/deckbuilder/imagens/Garrosh_Hellscream.png" alt="Classe Guerreiro"> </a>
-          <a href="" ng-click="$ctrl.clickEscolhaDaClasse('Mage')"> <img class="col-md-3 col-sm-6 col-xs-12" src="app/component/deckbuilder/imagens/Jaina_Proudmoore.png" alt="Classe Mago"> </a>
-          <a href="" ng-click="$ctrl.clickEscolhaDaClasse('Druid')"> <img class="col-md-3 col-sm-6 col-xs-12" src="app/component/deckbuilder/imagens/Malfurion_Stormrage.png" alt="Classe Druida"> </a>
-          <a href="" ng-click="$ctrl.clickEscolhaDaClasse('Hunter')"> <img class="col-md-3 col-sm-6 col-xs-12" src="app/component/deckbuilder/imagens/Rexxar.png" alt="Classe Caçador"> </a>
-          <a href="" ng-click="$ctrl.clickEscolhaDaClasse('Rogue')"> <img class="col-md-3 col-sm-6 col-xs-12" src="app/component/deckbuilder/imagens/valeera-sanguinar.png" alt="Classe Ladino"> </a>
+          <a href="" ng-click="$ctrl.clickEscolhaDaClasse('Warrior')"> <img uib-tooltip="Classe Guerreiro" class="col-md-3 col-sm-6 col-xs-12" ng-src="app/component/deckbuilder/imagens/Garrosh_Hellscream.png" alt="Classe Guerreiro"> </a>
+          <a href="" ng-click="$ctrl.clickEscolhaDaClasse('Mage')"> <img uib-tooltip="Classe Mago" class="col-md-3 col-sm-6 col-xs-12" ng-src="app/component/deckbuilder/imagens/Jaina_Proudmoore.png" alt="Classe Mago"> </a>
+          <a href="" ng-click="$ctrl.clickEscolhaDaClasse('Druid')"> <img uib-tooltip="Classe Druída" class="col-md-3 col-sm-6 col-xs-12" ng-src="app/component/deckbuilder/imagens/Malfurion_Stormrage.png" alt="Classe Druida"> </a>
+          <a href="" ng-click="$ctrl.clickEscolhaDaClasse('Hunter')"> <img uib-tooltip="Classe Caçador" class="col-md-3 col-sm-6 col-xs-12" ng-src="app/component/deckbuilder/imagens/Rexxar.png" alt="Classe Caçador"> </a>
+          <a href="" ng-click="$ctrl.clickEscolhaDaClasse('Rogue')"> <img uib-tooltip="Classe Ladino" class="col-md-3 col-sm-6 col-xs-12" ng-src="app/component/deckbuilder/imagens/valeera-sanguinar.png" alt="Classe Ladino"> </a>
+          <a href="" ng-click="$ctrl.clickEscolhaDaClasse('Warlock')"> <img uib-tooltip="Classe Bruxo" class="col-md-3 col-sm-6 col-xs-12" ng-src="app/component/deckbuilder/imagens/Guldan.png" alt="Classe Bruxo"> </a>
+          <a href="" ng-click="$ctrl.clickEscolhaDaClasse('Shaman')"> <img uib-tooltip="Classe Xamã" class="col-md-3 col-sm-6 col-xs-12" ng-src="app/component/deckbuilder/imagens/Shaman.png" alt="Classe Xamã"> </a>
+          <a href="" ng-click="$ctrl.clickEscolhaDaClasse('Paladin')"> <img uib-tooltip="Classe Paladino" class="col-md-3 col-sm-6 col-xs-12" ng-src="app/component/deckbuilder/imagens/Paladin.png" alt="Classe Paladino"> </a>
         </div>
       </div>
 
@@ -221,7 +224,7 @@
 
       <div class="panel panel-default paddingCards" ng-show="$ctrl.classeEscolhida">
       <div class="form-group">
-        <label for="busca">Buscar carta
+        <label for="busca">Buscar carta <span class="glyphicon glyphicon-search"></span>
           <input class="form-control" name="busca" type="text" ng-model="buscaDoUsuario">
         </label>
       </div>
@@ -281,7 +284,7 @@
           <div class="">
             <!-- lista de cartas -->
             <!-- baseado hearthstone pwn  -->
-            <div class="row" ng-click="$ctrl.clickRemove($index)" ng-repeat="carta in $ctrl.myDeck track by $index">
+            <div uib-tooltip="clique nos nomes das caratas para tirá-las do deck" class="row" ng-click="$ctrl.clickRemove($index)" ng-repeat="carta in $ctrl.myDeck track by $index">
                 <div ng-class="{lendario: carta.rarity == 'Legendary', epico: carta.rarity == 'Epic', raro: carta.rarity == 'Rare', comum: carta.rarity == 'Common'}" class="nomeCarta panelListaCards col-xs-6 col-sm-3 col-md-3"> <p> {{ carta.name }} </p></div>
                 <div class="panelListaCards col-xs-6 col-sm-2 col-md-2"> {{ carta.cost }} </div>
             </div>
@@ -308,13 +311,13 @@
         
         <uib-tab index="0" heading="Cartas por Classe">
           <div class="row ex1 paddingPaineis">
-            <img class="col-sm-3 col-md-3 col-xs-12" ng-click="$ctrl.clickAdd(carta)" ng-repeat="carta in $ctrl.listaByClass | filter: { cardSet: selectedSet, rarity: selectedRarity, type: selectedType, cost: selectedMana, race: selectedRaca, name: buscaDoUsuario } track by $index" src="{{ carta.img }}">
+            <img class="col-sm-3 col-md-3 col-xs-12" ng-click="$ctrl.clickAdd(carta)" ng-repeat="carta in $ctrl.listaByClass | filter: { cardSet: selectedSet, rarity: selectedRarity, type: selectedType, cost: selectedMana, race: selectedRaca, name: buscaDoUsuario } track by $index" ng-src="{{ carta.img }}">
           </div>
         </uib-tab> 
 
         <uib-tab index="1" heading="Cartas Neutras">
           <div class="row ex1 paddingPaineis">
-            <img class="col-sm-3 col-md-3 col-xs-12" ng-click="$ctrl.clickAdd(carta)" ng-repeat="carta in $ctrl.lista | filter: { cardSet: selectedSet, rarity: selectedRarity, type: selectedType, cost: selectedMana, race: selectedRaca, name: buscaDoUsuario, img: '!!' } track by $index" src="{{ carta.img }}">
+            <img class="col-sm-3 col-md-3 col-xs-12" ng-click="$ctrl.clickAdd(carta)" ng-repeat="carta in $ctrl.lista | filter: { cardSet: selectedSet, rarity: selectedRarity, type: selectedType, cost: selectedMana, race: selectedRaca, name: buscaDoUsuario, img: '!!' } track by $index" ng-src="{{ carta.img }}">
           </div>
         </uib-tab> 
         

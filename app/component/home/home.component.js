@@ -79,6 +79,19 @@
 
     ];
 
+    this.slides = [
+      {
+        id: 0,
+        text: "Jogo muito divertido",
+        image: "app/component/deckbuilder/imagens/slide1.jpg"
+      },
+      {
+        id: 1,
+        text: "Jogadas Alucinantes",
+        image: "app/component/deckbuilder/imagens/slide2.jpg"
+      }
+    ]
+
     this.cardsPopulares = [
       "Savage Roar",
       "Swipe",
@@ -92,6 +105,7 @@
 
     this.getCardsPopulares();
 
+    this.myInterval = 5000;
   }
 
   homeController.$inject = ['$http'];
@@ -101,7 +115,19 @@
     controller: homeController,
     template: `
     <div class="row marginTopExtra">
-      <div class="panel panel-default col-xs-12 col-sm-5 col-md-5">
+
+      <div class="col-xs-12">
+        <div uib-carousel active="active" interval="$ctrl.myInterval">
+          <div uib-slide ng-repeat="slide in $ctrl.slides track by slide.id" index="slide.id">
+            <img ng-src="{{ slide.image }}" style="margin:auto;">
+            <div>
+              <h4 class="tituloSlide">{{ slide.text }}</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class=" panel panel-default col-xs-12 col-sm-5 col-md-5">
         <div class="tituloCards">
           <h3>Cartas mais usadas</h3>
         </div>
@@ -118,6 +144,7 @@
         </div>
         <div class="paddingCards">
           <div class="" ng-repeat="deck in $ctrl.decksPopulares">
+            
             <a href="#">{{ deck.nome }}</a>
           </div>
 

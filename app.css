@@ -79,3 +79,7 @@ div.ex1 {
 .navbar {
   box-shadow: 0 8px 6px -6px;
 }
+.tituloSlide {
+  color: #fff;
+  font-weight: bolder;
+}
