@@ -102,6 +102,8 @@
 
     }
 
+    
+
     this.clickEscolhaDaClasse = (classe) => {
       this.classeEscolhida = true;
       this.classeTipo = classe;
@@ -215,7 +217,7 @@
       <div class="panel panel-default paddingCards" ng-show="$ctrl.classeEscolhida">
       <div class="form-group">
         <label for="busca">Buscar carta
-          <input class="form-control" name="busca" type="text">
+          <input class="form-control" name="busca" type="text" ng-model="buscaDoUsuario">
         </label>
       </div>
 
@@ -297,7 +299,7 @@
 
       <div class="panel panel-default col-xs-12 marginTopExtra">
         <div class="row ex1 paddingPaineis">
-          <img class="col-sm-3 col-md-3 col-xs-12" ng-click="$ctrl.clickAdd(carta)" ng-repeat="carta in $ctrl.listaByClass | filter: { cardSet: selectedSet, rarity: selectedRarity, type: selectedType, cost: selectedMana, race: selectedRaca } track by $index" src="{{ carta.img }}">
+          <img class="col-sm-3 col-md-3 col-xs-12" ng-click="$ctrl.clickAdd(carta)" ng-repeat="carta in $ctrl.listaByClass | filter: { cardSet: selectedSet, rarity: selectedRarity, type: selectedType, cost: selectedMana, race: selectedRaca, name: buscaDoUsuario } track by $index" src="{{ carta.img }}">
         </div>
       </div>
 
