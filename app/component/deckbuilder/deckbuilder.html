@@ -1,9 +1,12 @@
 <div>
 
-    <h2>DeckBuilder</h2>
-    <div>
-      <p>
-        texto explicativo
+    <h2 class="tituloDeckBuilder marginTopExtra">DeckBuilder</h2>
+    <div class="paddingCards panel panel-default">
+      <p class="textoExplicativo">
+      Deckbuider é uma ferramenta usada para você criar qualquer tipo de deck de hearthstone, e isso se presume a decks de contendas, decks considerados absurdos, enfim todo o tipo de deck, contudo para salvar os decks é preciso está logado.
+      </p>
+      <p class="textoExplicativo">
+      Para começar a montar seu deck, escolha sua classe e depois click em cada carta. As regras do jogo serão as mesmas usadas aqui na limitação da criação dos deck’s.
       </p>
     </div>
 
@@ -12,24 +15,29 @@
     <!--  zzzzzzzzzzzzzzzzzzzzzzz escolha da classe zzzzzzzzzzzzzzzzzzzz -->
 
 
-  <div>
+  <div class="panel panel-defualt" ng-show="!$ctrl.classeEscolhida" >
     <!-- corresponde a escolha de classe  -->
-    <h2>
+    <h2 class="paddingCards tituloCards">
       Escolha sua classe
     </h2>
-    <div>
-      <a href=""> <img src="/app/component/deckbuilder/imagens/Anduin_Wrynn.png" alt="Classe Sacerdote"> </a>
-      <a href=""> <img src="imagens/Garrosh_Hellscream.png" alt="Classe Sacerdote"> </a>
-      <a href=""> <img src="imagens/Jaina_Proudmoore.png" alt="Classe Sacerdote"> </a>
-      <a href=""> <img src="imagens/Malfurion_Stormrage.png" alt="Classe Sacerdote"> </a>
-      <a href=""> <img src="imagens/Rexxar.png" alt="Classe Sacerdote"> </a>
-      <a href=""> <img src="imagens/valeera-sanguinar.png" alt="Classe Sacerdote"> </a>
+    <div class="row paddingPaineis">
+      <a href="" ng-click="$ctrl.clickEscolhaDaClasse('Warrior')"> <img uib-tooltip="Classe Guerreiro" class="col-md-3 col-sm-6 col-xs-12" ng-src="app/component/deckbuilder/imagens/Garrosh_Hellscream.png" alt="Classe Guerreiro"> </a>
+      <a href="" ng-click="$ctrl.clickEscolhaDaClasse('Mage')"> <img uib-tooltip="Classe Mago" class="col-md-3 col-sm-6 col-xs-12" ng-src="app/component/deckbuilder/imagens/Jaina_Proudmoore.png" alt="Classe Mago"> </a>
+      <a href="" ng-click="$ctrl.clickEscolhaDaClasse('Druid')"> <img uib-tooltip="Classe Druída" class="col-md-3 col-sm-6 col-xs-12" ng-src="app/component/deckbuilder/imagens/Malfurion_Stormrage.png" alt="Classe Druida"> </a>
+      <a href="" ng-click="$ctrl.clickEscolhaDaClasse('Hunter')"> <img uib-tooltip="Classe Caçador" class="col-md-3 col-sm-6 col-xs-12" ng-src="app/component/deckbuilder/imagens/Rexxar.png" alt="Classe Caçador"> </a>
+      <a href="" ng-click="$ctrl.clickEscolhaDaClasse('Rogue')"> <img uib-tooltip="Classe Ladino" class="col-md-3 col-sm-6 col-xs-12" ng-src="app/component/deckbuilder/imagens/valeera-sanguinar.png" alt="Classe Ladino"> </a>
+      <a href="" ng-click="$ctrl.clickEscolhaDaClasse('Warlock')"> <img uib-tooltip="Classe Bruxo" class="col-md-3 col-sm-6 col-xs-12" ng-src="app/component/deckbuilder/imagens/Guldan.png" alt="Classe Bruxo"> </a>
+      <a href="" ng-click="$ctrl.clickEscolhaDaClasse('Shaman')"> <img uib-tooltip="Classe Xamã" class="col-md-3 col-sm-6 col-xs-12" ng-src="app/component/deckbuilder/imagens/Shaman.png" alt="Classe Xamã"> </a>
+      <a href="" ng-click="$ctrl.clickEscolhaDaClasse('Paladin')"> <img uib-tooltip="Classe Paladino" class="col-md-3 col-sm-6 col-xs-12" ng-src="app/component/deckbuilder/imagens/Paladin.png" alt="Classe Paladino"> </a>
     </div>
   </div>
 
-  <div>
-    <label for="">Buscar carta
-      <input type="text">
+  <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxx parte de classe xxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+  <div class="panel panel-default paddingCards" ng-show="$ctrl.classeEscolhida">
+  <div class="form-group">
+    <label for="busca">Buscar carta <span class="glyphicon glyphicon-search"></span>
+      <input class="form-control" name="busca" type="text" ng-model="buscaDoUsuario">
     </label>
   </div>
 
@@ -38,34 +46,27 @@
   <!--  zzzzzzzzzzzzzzzzzzzzzzz Filtros zzzzzzzzzzzzzzzzzzzz -->
 
 
-  <div>
+  <div class="panel panel-default paddingCards form-group marginExtra">
     <!-- filtros -->
-    <label for="">Mecânica
-      <select name="" id=""></select>
+
+    <label for="raridade">Raridade
+      <select class=" form-control" name="raridade" id="" ng-model="selectedRarity" ng-options="rarity for rarity in $ctrl.raridade"></select>
     </label>
 
-    <label for="">Raridade
-      <select name="" id=""></select>
-    </label>
-
-    <label for="">Tipo
-      <select name="" id=""></select>
-    </label>
-
-    <label for="">Formato
-      <select name="" id=""></select>
+    <label for="tipo">Tipo
+      <select class="form-control" name="tipo" id="" ng-model="selectedType" ng-options="type for type in $ctrl.tipos"></select>
     </label>
 
     <label for="">Mana
-      <select name="" id=""></select>
+      <select class="form-control" name="mana" id="" ng-model="selectedMana" ng-options="cost for cost in $ctrl.mana" ></select>
     </label>
 
-    <label for="">Raça
-      <select name="" id=""></select>
+    <label for="raca">Raça
+      <select class="form-control" name="raca" id="" ng-model="selectedRaca" ng-options="race for race in $ctrl.raca"></select>
     </label>
 
-    <label for="">Conjunto
-      <select name="" id=""></select>
+    <label for="conjunto">Conjunto
+      <select class="form-control" name="conjunto" ng-model="selectedSet" ng-options="set for set in $ctrl.sets" ></select>
     </label>
 
   </div>
@@ -77,27 +78,29 @@
   <div>
     <div>
       <!--titulo do baralho-->
-      <p>Deck de {{ classe }} </p>
+      <p class="tituloDeck">Deck de {{ $ctrl.classeTipo }} </p>
     </div>
 
-    <div>
-      <div>
-        <p>Nome</p>
+    <div class="">
+      <div class="row">
+        <div class="tituloPanel col-xs-6 col-sm-3 col-md-3">
+          <p>Nome</p>
+        </div>
+
+        <div class="tituloPanel col-xs-5 col-sm-2 col-md-2">
+          <p>Custo</p>
+        </div>
       </div>
 
-      <div>
-        <p>Custo</p>
-      </div>
-    </div>
 
-
-    <div ng-repeat="">
-      <!-- lista de cartas -->
-      <!-- baseado hearthstone pwn  -->
-      <div>
-          <p> {{ nome do card }} quantidade </p>
+      <div class="">
+        <!-- lista de cartas -->
+        <!-- baseado hearthstone pwn  -->
+        <div uib-tooltip="clique nos nomes das caratas para tirá-las do deck" class="row" ng-click="$ctrl.clickRemove($index)" ng-repeat="carta in $ctrl.myDeck track by $index">
+            <div ng-class="{lendario: carta.rarity == 'Legendary', epico: carta.rarity == 'Epic', raro: carta.rarity == 'Rare', comum: carta.rarity == 'Common'}" class="nomeCarta panelListaCards col-xs-6 col-sm-3 col-md-3"> <p> {{ carta.name }} </p></div>
+            <div class="panelListaCards col-xs-6 col-sm-2 col-md-2"> {{ carta.cost }} </div>
+        </div>
       </div>
-          <p> custo </p> <img src="" alt=""> <!-- ícone de mana -->
     </div>
 
 
@@ -108,29 +111,43 @@
 
       </div>
     </div>
-  </div>
 
   <!--  zzzzzzzzzzzzzzzzzzzzzzz tabela lateral zzzzzzzzzzzzzzzzzzzz -->
 
   <!--  zzzzzzzzzzzzzzzzzzzzzzz tabela lateral zzzzzzzzzzzzzzzzzzzz -->
+
+
+  <div class="panel panel-default col-xs-12 marginTopExtra">
+
+  <uib-tabset active="active">
+
+    <uib-tab index="0" heading="Cartas por Classe">
+      <div class="row ex1 paddingPaineis">
+        <img class="col-sm-3 col-md-3 col-xs-12" ng-click="$ctrl.clickAdd(carta)" ng-repeat="carta in $ctrl.listaByClass | filter: { cardSet: selectedSet, rarity: selectedRarity, type: selectedType, cost: selectedMana, race: selectedRaca, name: buscaDoUsuario } track by $index" ng-src="{{ carta.img }}">
+      </div>
+    </uib-tab>
+
+    <uib-tab index="1" heading="Cartas Neutras">
+      <div class="row ex1 paddingPaineis">
+        <img class="col-sm-3 col-md-3 col-xs-12" ng-click="$ctrl.clickAdd(carta)" ng-repeat="carta in $ctrl.lista | filter: { cardSet: selectedSet, rarity: selectedRarity, type: selectedType, cost: selectedMana, race: selectedRaca, name: buscaDoUsuario, img: '!!' } track by $index" ng-src="{{ carta.img }}">
+      </div>
+    </uib-tab>
+
+  </uib-tabset>
+
+</div>
+
+  <!--  zzzzzzzzzzzzzzzzzzzzzzz botões zzzzzzzzzzzzzzzzzzzz -->
+
+  <!--  zzzzzzzzzzzzzzzzzzzzzzz botões zzzzzzzzzzzzzzzzzzzz -->
 
 
   <div class="">
-    <div class="">
-      <img ng-repeat="carta in $ctrl.listaByClass track by $index" src="{{ carta.img }}">
-    </div>
+    <!-- botões de salvamento e volta a escolha da classe -->
+    <button class="marginMiniTop col-sm-2 col-md-2 col-xs-12 btn btn-info" ng-click="$ctrl.clickRetorno()">Voltar</button>
+    <button class="marginMiniTop col-sm-2 col-md-2 col-md-offset-1 col-sm-offset-1 col-xs-12 btn btn-warning" ng-click="$ctrl.salvar()">Salvar</button>
   </div>
 
-
-  <!--  zzzzzzzzzzzzzzzzzzzzzzz botões zzzzzzzzzzzzzzzzzzzz -->
-
-  <!--  zzzzzzzzzzzzzzzzzzzzzzz botões zzzzzzzzzzzzzzzzzzzz -->
-
-
-  <div>
-    <!-- botões de salvamento e volta a escolha da classe -->
-    <button>Voltar</button>
-    <button>Salvar</button>
   </div>
 
 </div>
