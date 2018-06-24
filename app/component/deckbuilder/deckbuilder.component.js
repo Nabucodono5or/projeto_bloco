@@ -4,6 +4,7 @@
     this.classeEscolhida = false;
     var cartas = this;
     this.myDeck = [];
+    getNeutral();
     cartas.listaByClass;
     this.sets =  [
           "",
@@ -298,11 +299,24 @@
 
 
       <div class="panel panel-default col-xs-12 marginTopExtra">
-        <div class="row ex1 paddingPaineis">
-          <img class="col-sm-3 col-md-3 col-xs-12" ng-click="$ctrl.clickAdd(carta)" ng-repeat="carta in $ctrl.listaByClass | filter: { cardSet: selectedSet, rarity: selectedRarity, type: selectedType, cost: selectedMana, race: selectedRaca, name: buscaDoUsuario } track by $index" src="{{ carta.img }}">
-        </div>
-      </div>
 
+      <uib-tabset active="active">
+        
+        <uib-tab index="0" heading="Cartas por Classe">
+          <div class="row ex1 paddingPaineis">
+            <img class="col-sm-3 col-md-3 col-xs-12" ng-click="$ctrl.clickAdd(carta)" ng-repeat="carta in $ctrl.listaByClass | filter: { cardSet: selectedSet, rarity: selectedRarity, type: selectedType, cost: selectedMana, race: selectedRaca, name: buscaDoUsuario } track by $index" src="{{ carta.img }}">
+          </div>
+        </uib-tab> 
+
+        <uib-tab index="1" heading="Cartas Neutras">
+          <div class="row ex1 paddingPaineis">
+            <img class="col-sm-3 col-md-3 col-xs-12" ng-click="$ctrl.clickAdd(carta)" ng-repeat="carta in $ctrl.lista | filter: { cardSet: selectedSet, rarity: selectedRarity, type: selectedType, cost: selectedMana, race: selectedRaca, name: buscaDoUsuario } track by $index" src="{{ carta.img }}">
+          </div>
+        </uib-tab> 
+        
+      </uib-tabset>
+
+    </div>
 
       <!--  zzzzzzzzzzzzzzzzzzzzzzz botões zzzzzzzzzzzzzzzzzzzz -->
 
