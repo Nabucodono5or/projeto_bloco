@@ -2,7 +2,8 @@
   angular.module('app').component('appcomp',{
     template: `
       <navbarcomp></navbarcomp>
-      <ui-view></ui-view>
+      <div class="ui-resolve marginTopExtra" ng-show="stateIsLoading"></div>
+      <ui-view ng-hide="stateIsLoading"></ui-view>
     `
   });
 })();

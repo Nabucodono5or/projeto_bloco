@@ -28,12 +28,23 @@
       }
     });
 
-    /*
-
-
-    */
-
   });
 
+})();
 
+(function () {
+  angular.module('app').run(['$rootScope', function($rootScope){
+
+    $rootScope.$on('$stateChangeStart', 
+      function(event, toState, toParams, fromState, fromParams){ 
+          $rootScope.stateIsLoading = true;
+    });
+
+    $rootScope.$on('$stateChangeSuccess', 
+      function(event, toState, toParams, fromState, fromParams){
+          $rootScope.stateIsLoading = false;
+    });
+
+  }]); 
+  
 })();
