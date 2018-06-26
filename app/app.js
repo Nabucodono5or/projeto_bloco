@@ -15,7 +15,7 @@
       component: 'homecomp',
       resolve: {
         'title': ['$rootScope', function($rootScope){
-          $rootScope.title = "Home";
+          $rootScope.title = "Home | Coleção de cartas Hearthstone";
         }],
       }
     }).state('deckbuilder', {
@@ -23,7 +23,7 @@
       component: 'deckbuildercomp',
       resolve: {
         'title': ['$rootScope', function($rootScope){
-          $rootScope.title = "DeckBuilder";
+          $rootScope.title = "DeckBuilder | Coleção de cartas Hearthstone";
         }],
       }
     });
