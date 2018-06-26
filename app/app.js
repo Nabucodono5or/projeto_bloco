@@ -12,10 +12,20 @@
 
     $stateProvider.state('home', {
       url: '/',
-      component: 'homecomp'
+      component: 'homecomp',
+      resolve: {
+        'title': ['$rootScope', function($rootScope){
+          $rootScope.title = "Home";
+        }],
+      }
     }).state('deckbuilder', {
       url: '/deckbuilder',
-      component: 'deckbuildercomp'
+      component: 'deckbuildercomp',
+      resolve: {
+        'title': ['$rootScope', function($rootScope){
+          $rootScope.title = "DeckBuilder";
+        }],
+      }
     });
 
     /*
