@@ -1,6 +1,6 @@
 (function () {
 
-  angular.module('app', ['component','common', 'ui.router','ui.bootstrap', 'ngAnimate']);
+  angular.module('app', ['angular-loading-bar','component','common', 'ui.router','ui.bootstrap', 'ngAnimate']);
 
 })();
 
@@ -32,6 +32,7 @@
 
 })();
 
+
 (function () {
   angular.module('app').run(['$rootScope', function($rootScope){
 
@@ -48,3 +49,5 @@
   }]); 
   
 })();
+
+
